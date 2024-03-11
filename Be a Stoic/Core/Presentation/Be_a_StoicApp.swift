@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct Be_a_StoicApp: App {
+    
+    @StateObject private var ideaController = IdeaController()
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(\.managedObjectContext, ideaController.container.viewContext)
         }
     }
 }
