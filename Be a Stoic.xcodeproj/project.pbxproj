@@ -25,6 +25,7 @@
 		9D6C73972B9B830B00410F53 /* AddIdeaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C73962B9B830B00410F53 /* AddIdeaViewModel.swift */; };
 		9DFBA37C2B9ED3170010EFBB /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFBA37B2B9ED3170010EFBB /* BaseButton.swift */; };
 		9DFBA37E2B9ED7630010EFBB /* IdeaModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFBA37D2B9ED7630010EFBB /* IdeaModelTest.swift */; };
+		9DFBA3802B9EE4FA0010EFBB /* BaseBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFBA37F2B9EE4FA0010EFBB /* BaseBackground.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		9D6C73962B9B830B00410F53 /* AddIdeaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIdeaViewModel.swift; sourceTree = "<group>"; };
 		9DFBA37B2B9ED3170010EFBB /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		9DFBA37D2B9ED7630010EFBB /* IdeaModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaModelTest.swift; sourceTree = "<group>"; };
+		9DFBA37F2B9EE4FA0010EFBB /* BaseBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBackground.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				9DFBA37B2B9ED3170010EFBB /* BaseButton.swift */,
+				9DFBA37F2B9EE4FA0010EFBB /* BaseBackground.swift */,
 			);
 			path = Layouts;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 			files = (
 				9D6C73902B9B826A00410F53 /* Coordinator.swift in Sources */,
 				9D6C73922B9B828700410F53 /* CoordinatorView.swift in Sources */,
+				9DFBA3802B9EE4FA0010EFBB /* BaseBackground.swift in Sources */,
 				9D6C73952B9B82FF00410F53 /* AddIdeaView.swift in Sources */,
 				9D6C73892B9B7F4200410F53 /* IdeaModel.xcdatamodeld in Sources */,
 				9D6C73972B9B830B00410F53 /* AddIdeaViewModel.swift in Sources */,
