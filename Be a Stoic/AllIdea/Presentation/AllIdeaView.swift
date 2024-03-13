@@ -13,11 +13,16 @@ struct AllIdeaView: View {
     @State var viewModel = AllIdeaViewModel()
     
     var body: some View {
-        BaseBackground(title: "all thoghts",isSettingsVisible: true, content: VStack{
+        BaseBackground(title: "all thoghts",isSettingsVisible: true,shouldNavigateBack: false, content: VStack{
             ForEach((1...10), id: \.self){ idea in
                 IdeaItem(ideaItem: Idea(text: "Hi, \(idea)"))
                 
             }
+            BaseButton(buttonAction: {
+                coordinator.push(page: .add)
+            }, text: "add")
+                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                .frame(alignment: .leading)
         })
         
     }

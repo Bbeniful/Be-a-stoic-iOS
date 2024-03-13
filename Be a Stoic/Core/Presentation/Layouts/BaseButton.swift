@@ -10,17 +10,26 @@ import SwiftUI
 struct BaseButton: View {
     
     let buttonAction: () -> Void
+    let text: String
     
     var body: some View {
-        Button(action: buttonAction, label: {
-            /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
-                .foregroundColor(.white)
-                .font(.system(size: 22))
-        })
-        .background(Color.blue)
+        ZStack(alignment: .center){
+            Text(text)
+                .padding() .overlay(
+                    RoundedRectangle(cornerRadius: 25)
+                        .stroke(Color.white, lineWidth: 2))
+        }
+        .onTapGesture {
+            buttonAction()
+        }
+        .background(Color.gray)
+        .overlay(
+            RoundedRectangle(cornerRadius: 25)
+                .stroke(Color.white, lineWidth: 2))
+        
     }
 }
 
 #Preview {
-    BaseButton(buttonAction: {})
+    BaseButton(buttonAction: {}, text: "save")
 }

@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct AddIdea: View {
+
     
     @State var viewModel = AddIdeaViewModel()
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+       BaseBackground(title:"Add", isSettingsVisible: false, shouldNavigateBack: true,
+                      content: VStack{
+           
+       })
     }
 }
 

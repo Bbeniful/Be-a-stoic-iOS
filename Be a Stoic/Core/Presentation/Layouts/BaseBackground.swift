@@ -11,12 +11,13 @@ struct BaseBackground<Content: View>: View {
     
     let title: String
     let isSettingsVisible: Bool
+    let shouldNavigateBack: Bool
     let content: Content
     
     var body: some View {
         ZStack{
             VStack(){
-                Header(title: title, isSettingsVisible: isSettingsVisible)
+                Header(title: title, shouldNavigateBack: shouldNavigateBack, isSettingsVisible: isSettingsVisible)
                 content
                 Spacer()
                 
@@ -32,6 +33,7 @@ struct BaseBackground<Content: View>: View {
             .padding(5)
             .background(Color.black)
             .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
+            .navigationBarBackButtonHidden(true)
 
         
         
@@ -44,10 +46,19 @@ struct Header: View {
     
     var onSettingsClick: OnSettingsClick?
     var title: String
+    var shouldNavigateBack: Bool
     var isSettingsVisible: Bool
+
     
     var body: some View {
         HStack{
+            if shouldNavigateBack {
+                Image(systemName: "chevron.compact.backward")
+                    .onTapGesture {
+                        coordinator.popBack()
+                    }
+            }
+            
             Text(title).foregroundColor(.white)
             Spacer()
             if isSettingsVisible {
@@ -73,8 +84,5 @@ extension OnSettingsClick{
 
 
 #Preview {
-    BaseBackground(title:" ",isSettingsVisible : true,content:
-                    HStack(content: {
-        Text("Hello base background")
-    }))
+    BaseBackground(title: "String", isSettingsVisible: true, shouldNavigateBack: true, content: Text("apple tree"))
 }

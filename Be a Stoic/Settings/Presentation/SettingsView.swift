@@ -9,12 +9,25 @@ import SwiftUI
 
 struct SettingsView: View {
     
+    @EnvironmentObject var coordinator: Coordinator
+    
+    @State var viewModel = SettingsViewModel()
+    
     @State var text: String = "Username"
     
     var body: some View {
-        BaseBackground(title: "Settings", isSettingsVisible: false, content: VStack{
+        BaseBackground(title: "Settings", isSettingsVisible: false, shouldNavigateBack: true, content: VStack{
             TextField("Username",text: $text)
-        }.padding()
+            Spacer()
+            Button(action: {
+                viewModel.save(userName: text)
+                coordinator.popBack()
+            }, label: {
+                Text("Save")
+            })
+        }
+            .navigationBarBackButtonHidden(true)
+            .padding()
         
         )
     }
