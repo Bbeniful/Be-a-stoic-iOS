@@ -26,6 +26,7 @@
 		9DFBA37C2B9ED3170010EFBB /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFBA37B2B9ED3170010EFBB /* BaseButton.swift */; };
 		9DFBA37E2B9ED7630010EFBB /* IdeaModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFBA37D2B9ED7630010EFBB /* IdeaModelTest.swift */; };
 		9DFBA3802B9EE4FA0010EFBB /* BaseBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFBA37F2B9EE4FA0010EFBB /* BaseBackground.swift */; };
+		9DFBA3852BA188490010EFBB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFBA3842BA188490010EFBB /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		9DFBA37B2B9ED3170010EFBB /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		9DFBA37D2B9ED7630010EFBB /* IdeaModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaModelTest.swift; sourceTree = "<group>"; };
 		9DFBA37F2B9EE4FA0010EFBB /* BaseBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBackground.swift; sourceTree = "<group>"; };
+		9DFBA3842BA188490010EFBB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 		9D6C737C2B9B71BB00410F53 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				9DFBA3832BA188390010EFBB /* Presentation */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -249,6 +252,14 @@
 				9DFBA37F2B9EE4FA0010EFBB /* BaseBackground.swift */,
 			);
 			path = Layouts;
+			sourceTree = "<group>";
+		};
+		9DFBA3832BA188390010EFBB /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				9DFBA3842BA188490010EFBB /* SettingsView.swift */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,6 +399,7 @@
 				9D6C73892B9B7F4200410F53 /* IdeaModel.xcdatamodeld in Sources */,
 				9D6C73972B9B830B00410F53 /* AddIdeaViewModel.swift in Sources */,
 				9D6C73522B9B719200410F53 /* ContentView.swift in Sources */,
+				9DFBA3852BA188490010EFBB /* SettingsView.swift in Sources */,
 				9D6C73502B9B719200410F53 /* Be_a_StoicApp.swift in Sources */,
 				9D6C73852B9B749A00410F53 /* Idea.swift in Sources */,
 				9D6C738B2B9B7FE100410F53 /* IdeaController.swift in Sources */,

@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct BaseButton: View {
+    
+    let buttonAction: () -> Void
+    
     var body: some View {
-        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+        Button(action: buttonAction, label: {
             /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
                 .foregroundColor(.white)
                 .font(.system(size: 22))
@@ -19,5 +22,5 @@ struct BaseButton: View {
 }
 
 #Preview {
-    BaseButton()
+    BaseButton(buttonAction: {})
 }

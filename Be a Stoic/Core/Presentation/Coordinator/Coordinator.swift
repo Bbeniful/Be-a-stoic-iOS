@@ -10,6 +10,7 @@ import SwiftUI
 enum Page: Hashable{
     case list
     case add
+    case settings
 }
 
 class Coordinator: ObservableObject {
@@ -31,6 +32,8 @@ class Coordinator: ObservableObject {
             AllIdeaView()
         case .add:
             AddIdea()
+        case .settings:
+            SettingsView()
         }
     }
 }

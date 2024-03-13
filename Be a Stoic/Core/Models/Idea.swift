@@ -19,7 +19,7 @@ struct Idea: Identifiable{
 
 func filterOnlyNotDraft(ideas: [Idea]?) -> [Idea]{
     guard let list = ideas else { return [] }
-    return list.filter{ !$0.isDraft }
+    return list.filter{ idea in !idea.isDraft }
 }
 
 
