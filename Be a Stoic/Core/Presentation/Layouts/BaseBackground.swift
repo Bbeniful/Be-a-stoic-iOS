@@ -9,7 +9,6 @@ import SwiftUI
 
 struct BaseBackground<Content: View>: View {
     
-    //let onSettings: () -> Void
     let title: String
     let isSettingsVisible: Bool
     let content: Content
