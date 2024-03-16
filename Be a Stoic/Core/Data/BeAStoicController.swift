@@ -10,6 +10,8 @@ import CoreData
 
 class BeAStoicController: ObservableObject{
     
+    static let shared = BeAStoicController()
+
     let container = NSPersistentContainer(name: "IdeaModel")
     
     init(){

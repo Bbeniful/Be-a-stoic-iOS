@@ -19,7 +19,7 @@ class AllIdeaViewModel: ObservableObject{
     
     func getAllIdea(context: NSManagedObjectContext) {
         do {
-            try self.ideas = BeAStoicController().getAllIdea(context: context)
+            try self.ideas = BeAStoicController.shared.getAllIdea(context: context)
         } catch {
             print("Cannot load data...")
         }
