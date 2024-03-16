@@ -14,14 +14,16 @@ struct AddIdea: View {
 
     @State var viewModel = AddIdeaViewModel()
     @State var idea: String = ""
+    @State var isChecked: Bool = false
     
     var body: some View {
         BaseBackground(title:"Add", isSettingsVisible: false, shouldNavigateBack: true,
                        content: VStack{
             TextField("", text: $idea, prompt: Text("Your thought..."))
+            Toggle("is draft", isOn: $isChecked)
             Spacer()
             BaseButton(buttonAction: {
-                viewModel.addIdea(idea: idea, isDraft: false, context: managedObjectContext)
+                viewModel.addIdea(idea: idea, isDraft: isChecked, context: managedObjectContext)
                 coordinator.popBack()
             }, text: "Save")
             

@@ -23,16 +23,18 @@ class BeAStoicController: ObservableObject{
         }
     }
     
-    func saveUserName(userName: String, context: NSManagedObjectContext) throws{
+    func saveUserName(userName: String, context: NSManagedObjectContext) throws {
         let userSetting: UserSettings!
-        let personFetchRequest: NSFetchRequest<UserSettings> = UserSettings.fetchRequest()
-        let userSettings = try context.fetch(personFetchRequest)
+        let userSettingsFetchRequest: NSFetchRequest<UserSettings> = UserSettings.fetchRequest()
+        let userSettings = try context.fetch(userSettingsFetchRequest)
         
-        if userSettings.count == 0 {
+       /* if userSettings.count == 0 {
             userSetting = UserSettings(context: context)
         } else {
             userSetting = userSettings.first
-        }
+        }*/
+        userSetting = userSettings.count == 0 ? UserSettings(context: context) : userSettings.first
+        
         userSetting.id = UUID()
         userSetting.userName = userName
         save(context: context)
