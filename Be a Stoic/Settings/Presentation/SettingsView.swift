@@ -6,33 +6,44 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct SettingsView: View {
     
+    
     @EnvironmentObject var coordinator: Coordinator
+    @Environment(\.managedObjectContext) var managedObjectContext
+
     
     @State var viewModel = SettingsViewModel()
     
-    @State var text: String = "Username"
+    @State var text: String = ""
     
     var body: some View {
         BaseBackground(title: "Settings", isSettingsVisible: false, shouldNavigateBack: true, content: VStack{
-            TextField("Username",text: $text)
+            TextField("",text: $text, prompt: Text("Username"))
             Spacer()
-            Button(action: {
-                viewModel.save(userName: text)
+            BaseButton(buttonAction: {
+                viewModel.save(userName: text, context: managedObjectContext)
                 coordinator.popBack()
-            }, label: {
-                Text("Save")
-            })
+                print(text)
+            }, text: "save")
         }
             .navigationBarBackButtonHidden(true)
             .padding()
+                       
+        ).onAppear{
+            viewModel.getUserSettings(context: managedObjectContext)
+            if let name = viewModel.userName {
+                self.text = name
+                print(name)
+            }
+            
+        }
         
-        )
     }
 }
 
 #Preview {
-    SettingsView(text: "almafa")
+    SettingsView(text: "")
 }

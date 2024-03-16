@@ -18,11 +18,15 @@ struct AllIdeaView: View {
                 IdeaItem(ideaItem: Idea(text: "Hi, \(idea)"))
                 
             }
-            BaseButton(buttonAction: {
-                coordinator.push(page: .add)
-            }, text: "add")
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-                .frame(alignment: .leading)
+            Spacer()
+            HStack(){
+                BaseButton(buttonAction: {
+                    coordinator.push(page: .add)
+                }, text: "add")
+                
+            }.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing)
+                .padding()
+            
         })
         
     }

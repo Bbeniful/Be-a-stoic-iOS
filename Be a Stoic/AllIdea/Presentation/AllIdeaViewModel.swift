@@ -16,4 +16,11 @@ class AllIdeaViewModel: ObservableObject{
         return [Idea(text: "swift idea", isShared: false, isDraft: false)]
     }
     
+    /*
+     let fetchRequest = NSFetchRequest()
+     fetchRequest.entity = NSEntityDescription.entityForName("ENTITY_NAME", inManagedObjectContext: managedObjectContext)
+     fetchRequest.propertiesToFetch = ["property1","property2"]
+     fetchRequest.resultType = .DictionaryResultType
+     */
+    
 }

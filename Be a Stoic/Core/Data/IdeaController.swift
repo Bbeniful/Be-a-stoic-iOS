@@ -9,16 +9,40 @@ import Foundation
 import CoreData
 
 class IdeaController: ObservableObject{
+    
     let container = NSPersistentContainer(name: "IdeaModel")
     
     init(){
         container.loadPersistentStores{ desc, error in
-    
+            
             if let error = error {
                 print("Failed to create data... \(error.localizedDescription)")
-
             }
         }
+    }
+    
+    func saveUserName(userName: String, context: NSManagedObjectContext) throws{
+        let userSetting: UserSettings!
+        let personFetchRequest: NSFetchRequest<UserSettings> = UserSettings.fetchRequest()
+        let userSettings = try context.fetch(personFetchRequest)
+        
+        if userSettings.count == 0 {
+            userSetting = UserSettings(context: context)
+        } else {
+            userSetting = userSettings.first
+        }
+        userSetting.id = UUID()
+        userSetting.userName = userName
+        save(context: context)
+    }
+    
+    func getUserSettings(context: NSManagedObjectContext) throws -> UserSettings? {
+        let personFetchRequest: NSFetchRequest<UserSettings> = UserSettings.fetchRequest()
+        let userSetting = try context.fetch(personFetchRequest)
+        userSetting.forEach { item in
+            print(item.userName)
+        }
+        return userSetting.first
         
     }
     
@@ -38,5 +62,5 @@ class IdeaController: ObservableObject{
         idea.isDraft = isDraft
         save(context: context)
     }
-
+    
 }

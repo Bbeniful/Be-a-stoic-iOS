@@ -6,14 +6,31 @@
 //
 
 import Foundation
+import CoreData
 
 
 class SettingsViewModel: ObservableObject {
     
+    @Published var userName: String?
     
+    init(userName: String? = "") {
+        self.userName = userName
+    }
     
-    func save(userName: String){
-        
+    func save(userName: String, context: NSManagedObjectContext){
+        do{
+           try IdeaController().saveUserName(userName: userName, context: context)
+        } catch {
+            print("Cannot save new name")
+        }
+    }
+    
+    func getUserSettings(context: NSManagedObjectContext){
+        do{
+            self.userName = try IdeaController().getUserSettings(context: context)?.userName
+        }catch{
+            print("Cannot load user name")
+        }
     }
     
 }

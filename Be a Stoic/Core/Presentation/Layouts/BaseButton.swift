@@ -13,23 +13,21 @@ struct BaseButton: View {
     let text: String
     
     var body: some View {
-        ZStack(alignment: .center){
+        Button(action: buttonAction) {
             Text(text)
-                .padding() .overlay(
-                    RoundedRectangle(cornerRadius: 25)
-                        .stroke(Color.white, lineWidth: 2))
+                .foregroundColor(.white)
         }
-        .onTapGesture {
-            buttonAction()
-        }
-        .background(Color.gray)
-        .overlay(
+        .foregroundColor(.white) // This line is redundant and can be removed
+        .padding() // Add padding to ensure there's enough space for the text
+        .background(
             RoundedRectangle(cornerRadius: 25)
-                .stroke(Color.white, lineWidth: 2))
-        
+                .stroke(Color.white, lineWidth: 2)
+                .background(Color.gray)
+        )
+        .cornerRadius(25)
     }
 }
 
 #Preview {
-    BaseButton(buttonAction: {}, text: "save")
+    BaseButton(buttonAction: {}, text: "savjvhjhvjhvjhvjhvjhe")
 }
