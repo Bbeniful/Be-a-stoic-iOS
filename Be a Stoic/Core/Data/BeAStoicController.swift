@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-class IdeaController: ObservableObject{
+class BeAStoicController: ObservableObject{
     
     let container = NSPersistentContainer(name: "IdeaModel")
     
@@ -37,13 +37,16 @@ class IdeaController: ObservableObject{
     }
     
     func getUserSettings(context: NSManagedObjectContext) throws -> UserSettings? {
-        let personFetchRequest: NSFetchRequest<UserSettings> = UserSettings.fetchRequest()
-        let userSetting = try context.fetch(personFetchRequest)
-        userSetting.forEach { item in
-            print(item.userName)
-        }
+        let userSettingsFetchRequest: NSFetchRequest<UserSettings> = UserSettings.fetchRequest()
+        let userSetting = try context.fetch(userSettingsFetchRequest)
         return userSetting.first
         
+    }
+    
+    func getAllIdea(context: NSManagedObjectContext) throws -> [MyIdeaModel]{
+        let ideaFetchRequest : NSFetchRequest<MyIdeaModel> = MyIdeaModel.fetchRequest()
+        let ideas = try context.fetch(ideaFetchRequest)
+        return ideas
     }
     
     func save(context: NSManagedObjectContext){

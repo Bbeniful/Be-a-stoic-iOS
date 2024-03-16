@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct Be_a_StoicApp: App {
     
-    @StateObject private var ideaController = IdeaController()
+    @StateObject private var ideaController = BeAStoicController()
 
     var body: some Scene {
         WindowGroup {

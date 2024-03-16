@@ -18,7 +18,7 @@
 		9D6C73812B9B720500410F53 /* AllIdeaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C73802B9B720500410F53 /* AllIdeaView.swift */; };
 		9D6C73852B9B749A00410F53 /* Idea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C73842B9B749A00410F53 /* Idea.swift */; };
 		9D6C73892B9B7F4200410F53 /* IdeaModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C73872B9B7F4200410F53 /* IdeaModel.xcdatamodeld */; };
-		9D6C738B2B9B7FE100410F53 /* IdeaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C738A2B9B7FE100410F53 /* IdeaController.swift */; };
+		9D6C738B2B9B7FE100410F53 /* BeAStoicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C738A2B9B7FE100410F53 /* BeAStoicController.swift */; };
 		9D6C73902B9B826A00410F53 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C738F2B9B826A00410F53 /* Coordinator.swift */; };
 		9D6C73922B9B828700410F53 /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C73912B9B828700410F53 /* CoordinatorView.swift */; };
 		9D6C73952B9B82FF00410F53 /* AddIdeaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C73942B9B82FF00410F53 /* AddIdeaView.swift */; };
@@ -62,7 +62,7 @@
 		9D6C73802B9B720500410F53 /* AllIdeaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllIdeaView.swift; sourceTree = "<group>"; };
 		9D6C73842B9B749A00410F53 /* Idea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Idea.swift; sourceTree = "<group>"; };
 		9D6C73882B9B7F4200410F53 /* IdeaModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IdeaModel.xcdatamodel; sourceTree = "<group>"; };
-		9D6C738A2B9B7FE100410F53 /* IdeaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaController.swift; sourceTree = "<group>"; };
+		9D6C738A2B9B7FE100410F53 /* BeAStoicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeAStoicController.swift; sourceTree = "<group>"; };
 		9D6C738F2B9B826A00410F53 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		9D6C73912B9B828700410F53 /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
 		9D6C73942B9B82FF00410F53 /* AddIdeaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIdeaView.swift; sourceTree = "<group>"; };
@@ -224,7 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				9D6C73872B9B7F4200410F53 /* IdeaModel.xcdatamodeld */,
-				9D6C738A2B9B7FE100410F53 /* IdeaController.swift */,
+				9D6C738A2B9B7FE100410F53 /* BeAStoicController.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -406,7 +406,7 @@
 				9DFBA3852BA188490010EFBB /* SettingsView.swift in Sources */,
 				9D6C73502B9B719200410F53 /* Be_a_StoicApp.swift in Sources */,
 				9D6C73852B9B749A00410F53 /* Idea.swift in Sources */,
-				9D6C738B2B9B7FE100410F53 /* IdeaController.swift in Sources */,
+				9D6C738B2B9B7FE100410F53 /* BeAStoicController.swift in Sources */,
 				9D6C737F2B9B71EE00410F53 /* AllIdeaViewModel.swift in Sources */,
 				9DFBA37C2B9ED3170010EFBB /* BaseButton.swift in Sources */,
 				9D6C73812B9B720500410F53 /* AllIdeaView.swift in Sources */,

@@ -19,7 +19,7 @@ class SettingsViewModel: ObservableObject {
     
     func save(userName: String, context: NSManagedObjectContext){
         do{
-           try IdeaController().saveUserName(userName: userName, context: context)
+           try BeAStoicController().saveUserName(userName: userName, context: context)
         } catch {
             print("Cannot save new name")
         }
@@ -27,7 +27,7 @@ class SettingsViewModel: ObservableObject {
     
     func getUserSettings(context: NSManagedObjectContext){
         do{
-            self.userName = try IdeaController().getUserSettings(context: context)?.userName
+            self.userName = try BeAStoicController().getUserSettings(context: context)?.userName
         }catch{
             print("Cannot load user name")
         }
