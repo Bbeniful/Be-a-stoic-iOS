@@ -13,5 +13,4 @@ class AddIdeaViewModel: ObservableObject{
     func addIdea(idea: String, isDraft: Bool = false,context: NSManagedObjectContext){
         BeAStoicController.shared.addIdea(text: idea, isDraft: isDraft, context: context)
     }
-    
 }

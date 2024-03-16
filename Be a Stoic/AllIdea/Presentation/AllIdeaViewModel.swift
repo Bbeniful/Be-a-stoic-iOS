@@ -21,7 +21,7 @@ class AllIdeaViewModel: ObservableObject{
         do {
             try self.ideas = BeAStoicController.shared.getAllIdea(context: context)
         } catch {
-            print("Cannot load data...")
+            print("Cannot load data...", error)
         }
     }
 }

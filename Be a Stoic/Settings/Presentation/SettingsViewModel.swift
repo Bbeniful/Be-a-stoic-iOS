@@ -29,7 +29,7 @@ class SettingsViewModel: ObservableObject {
         do{
             self.userName = try BeAStoicController.shared.getUserSettings(context: context)?.userName
         }catch{
-            print("Cannot load user name")
+            print("Cannot load user name ", error)
         }
     }
     
