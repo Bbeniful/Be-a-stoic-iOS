@@ -6,8 +6,12 @@
 //
 
 import Foundation
-
+import CoreData
 
 class AddIdeaViewModel: ObservableObject{
+    
+    func addIdea(idea: String, isDraft: Bool = false,context: NSManagedObjectContext){
+        BeAStoicController().addIdea(text: idea, isDraft: isDraft, context: context)
+    }
     
 }

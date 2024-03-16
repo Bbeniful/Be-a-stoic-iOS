@@ -23,7 +23,6 @@ func filterOnlyNotDraft(ideas: [Idea]?) -> [Idea]{
 }
 
 
-
 extension MyIdeaModel {
     func toIdea() -> Idea{
         return Idea(

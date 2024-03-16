@@ -9,13 +9,16 @@ import SwiftUI
 
 struct AllIdeaView: View {
     
+    @Environment(\.managedObjectContext) var managedObjectContext
     @EnvironmentObject private var coordinator: Coordinator
+    
     @State var viewModel = AllIdeaViewModel()
+    @State var ideas: [MyIdeaModel] = []
     
     var body: some View {
         BaseBackground(title: "all thoghts",isSettingsVisible: true,shouldNavigateBack: false, content: VStack{
-            ForEach((1...10), id: \.self){ idea in
-                IdeaItem(ideaItem: Idea(text: "Hi, \(idea)"))
+            ForEach(ideas, id: \.id){ idea in
+                IdeaItem(ideaItem: idea.toIdea())
                 
             }
             Spacer()
@@ -27,25 +30,15 @@ struct AllIdeaView: View {
             }.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing)
                 .padding()
             
-        })
+        }).onAppear{
+            viewModel.getAllIdea(context: managedObjectContext)
+            if let ideasFromView = viewModel.ideas {
+                ideas = ideasFromView
+            }
+        }
         
     }
 }
-
-
-private struct IdeaItem: View {
-    var ideaItem: Idea
-    
-    var body : some View {
-        Text(ideaItem.text)
-            .foregroundColor(.white)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.leading, 20)
-            .padding(.top, 10)
-    }
-}
-
-
 
 #Preview {
     AllIdeaView()

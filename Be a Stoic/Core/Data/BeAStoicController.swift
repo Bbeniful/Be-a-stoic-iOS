@@ -43,9 +43,12 @@ class BeAStoicController: ObservableObject{
         
     }
     
-    func getAllIdea(context: NSManagedObjectContext) throws -> [MyIdeaModel]{
+    func getAllIdea(context: NSManagedObjectContext) throws -> [MyIdeaModel]?{
         let ideaFetchRequest : NSFetchRequest<MyIdeaModel> = MyIdeaModel.fetchRequest()
         let ideas = try context.fetch(ideaFetchRequest)
+        ideas.forEach{itm in
+            print(itm.text)
+        }
         return ideas
     }
     
@@ -58,7 +61,7 @@ class BeAStoicController: ObservableObject{
         }
     }
     
-    func addIdea(text: String,isDraft: Bool, content: String, context: NSManagedObjectContext){
+    func addIdea(text: String,isDraft: Bool, context: NSManagedObjectContext){
         let idea = MyIdeaModel(context: context)
         idea.id = UUID()
         idea.text = text

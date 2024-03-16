@@ -6,21 +6,22 @@
 //
 
 import Foundation
+import CoreData
 
 class AllIdeaViewModel: ObservableObject{
     
-    @Published var ideas: [Idea] = []
+    @Published var ideas: [MyIdeaModel]? = []
     
-    
-    func getAllIdea() -> [Idea]{
-        return [Idea(text: "swift idea", isShared: false, isDraft: false)]
+    init(ideas: [MyIdeaModel]? = []) {
+        self.ideas = ideas
     }
     
-    /*
-     let fetchRequest = NSFetchRequest()
-     fetchRequest.entity = NSEntityDescription.entityForName("ENTITY_NAME", inManagedObjectContext: managedObjectContext)
-     fetchRequest.propertiesToFetch = ["property1","property2"]
-     fetchRequest.resultType = .DictionaryResultType
-     */
     
+    func getAllIdea(context: NSManagedObjectContext) {
+        do {
+            try self.ideas = BeAStoicController().getAllIdea(context: context)
+        } catch {
+            print("Cannot load data...")
+        }
+    }
 }

@@ -8,15 +8,25 @@
 import SwiftUI
 
 struct AddIdea: View {
-
     
+    @Environment(\.managedObjectContext) var managedObjectContext
+    @EnvironmentObject var coordinator: Coordinator
+
     @State var viewModel = AddIdeaViewModel()
+    @State var idea: String = ""
     
     var body: some View {
-       BaseBackground(title:"Add", isSettingsVisible: false, shouldNavigateBack: true,
-                      content: VStack{
-           
-       })
+        BaseBackground(title:"Add", isSettingsVisible: false, shouldNavigateBack: true,
+                       content: VStack{
+            TextField("", text: $idea, prompt: Text("Your thought..."))
+            Spacer()
+            BaseButton(buttonAction: {
+                viewModel.addIdea(idea: idea, isDraft: false, context: managedObjectContext)
+                coordinator.popBack()
+            }, text: "Save")
+            
+        }.padding()
+        )
     }
 }
 
