@@ -50,9 +50,6 @@ class BeAStoicController: ObservableObject{
     func getAllIdea(context: NSManagedObjectContext) throws -> [MyIdeaModel]?{
         let ideaFetchRequest : NSFetchRequest<MyIdeaModel> = MyIdeaModel.fetchRequest()
         let ideas = try context.fetch(ideaFetchRequest)
-        ideas.forEach{itm in
-            print(itm.text)
-        }
         return ideas
     }
     
