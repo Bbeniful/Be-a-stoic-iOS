@@ -11,7 +11,6 @@ enum Page: Hashable , Equatable{
     case list
     case add(idea: Idea?)
     case settings
-    
 }
 
 class Coordinator: ObservableObject {

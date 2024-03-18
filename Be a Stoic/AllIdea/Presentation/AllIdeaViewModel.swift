@@ -20,4 +20,8 @@ class AllIdeaViewModel: ObservableObject{
     func getAllIdea(context: NSManagedObjectContext) {
         self.ideas = GetIdeasUseCase().execute(context: context)
     }
+    
+    func getUserName(context: NSManagedObjectContext) -> String? {
+        return GetUserNameUseCase().execute(context: context)
+    }
 }

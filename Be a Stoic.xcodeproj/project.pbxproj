@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9D4E7AE12BA5DA580003F1C0 /* IdeaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4E7AE02BA5DA580003F1C0 /* IdeaItem.swift */; };
 		9D4E7AE42BA821370003F1C0 /* GetIdeasUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4E7AE32BA821370003F1C0 /* GetIdeasUseCase.swift */; };
+		9D4E7AE62BA829DD0003F1C0 /* GetUserNameUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4E7AE52BA829DD0003F1C0 /* GetUserNameUseCase.swift */; };
 		9D6C73502B9B719200410F53 /* Be_a_StoicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C734F2B9B719200410F53 /* Be_a_StoicApp.swift */; };
 		9D6C73522B9B719200410F53 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C73512B9B719200410F53 /* ContentView.swift */; };
 		9D6C73542B9B719200410F53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D6C73532B9B719200410F53 /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 /* Begin PBXFileReference section */
 		9D4E7AE02BA5DA580003F1C0 /* IdeaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaItem.swift; sourceTree = "<group>"; };
 		9D4E7AE32BA821370003F1C0 /* GetIdeasUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetIdeasUseCase.swift; sourceTree = "<group>"; };
+		9D4E7AE52BA829DD0003F1C0 /* GetUserNameUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserNameUseCase.swift; sourceTree = "<group>"; };
 		9D6C734C2B9B719200410F53 /* Be a Stoic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Be a Stoic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D6C734F2B9B719200410F53 /* Be_a_StoicApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Be_a_StoicApp.swift; sourceTree = "<group>"; };
 		9D6C73512B9B719200410F53 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				9D4E7AE32BA821370003F1C0 /* GetIdeasUseCase.swift */,
+				9D4E7AE52BA829DD0003F1C0 /* GetUserNameUseCase.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				9D6C73922B9B828700410F53 /* CoordinatorView.swift in Sources */,
 				9DFBA3802B9EE4FA0010EFBB /* BaseBackground.swift in Sources */,
 				9D6C73952B9B82FF00410F53 /* AddIdeaView.swift in Sources */,
+				9D4E7AE62BA829DD0003F1C0 /* GetUserNameUseCase.swift in Sources */,
 				9D6C73892B9B7F4200410F53 /* IdeaModel.xcdatamodeld in Sources */,
 				9DFBA3872BA18C2E0010EFBB /* SettingsViewModel.swift in Sources */,
 				9D6C73972B9B830B00410F53 /* AddIdeaViewModel.swift in Sources */,

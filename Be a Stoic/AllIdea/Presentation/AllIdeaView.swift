@@ -14,15 +14,22 @@ struct AllIdeaView: View {
     
     @State var viewModel = AllIdeaViewModel()
     @State var ideas: [Idea] = []
+    @State var title: String = ""
     
     var body: some View {
         AllIdea(buttonAction: {
             coordinator.push(page: .add(idea: nil))
-        }, ideas: ideas, coordinator: coordinator)
+        }, ideas: ideas, coordinator: coordinator, title: title)
         .onAppear{
             viewModel.getAllIdea(context: managedObjectContext)
             if let ideasFromView = viewModel.ideas {
                 ideas = ideasFromView
+            }
+            let name = viewModel.getUserName(context: managedObjectContext)
+            if name!.isEmpty {
+                title = "all thoughts"
+            } else {
+                title = name! + ", thoughts"
             }
         }
     }
@@ -31,18 +38,20 @@ struct AllIdeaView: View {
 struct AllIdea : View{
     let buttonAction: () -> ()
     let ideas: [Idea]
+    let title: String
     let coordinator: Coordinator?
     
     @State var shouldShowDrafts = false
     
-    init(buttonAction: @escaping () -> Void = {}, ideas: [Idea] = [], coordinator: Coordinator? = nil) {
+    init(buttonAction: @escaping () -> Void = {}, ideas: [Idea] = [], coordinator: Coordinator? = nil, title: String  = "") {
         self.buttonAction = buttonAction
         self.ideas = ideas
         self.coordinator = coordinator
+        self.title = title
     }
     
     var body: some View{
-        BaseBackground(title: "all thoghts", isSettingsVisible: true, shouldNavigateBack: false, content: VStack{
+        BaseBackground(title:title, isSettingsVisible: true, shouldNavigateBack: false, content: VStack{
             HStack{
                 let draftText = shouldShowDrafts ? "hide drafts" : "show drafts"
                 Text(draftText)
