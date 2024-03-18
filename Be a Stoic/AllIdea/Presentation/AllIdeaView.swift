@@ -13,32 +13,32 @@ struct AllIdeaView: View {
     @EnvironmentObject private var coordinator: Coordinator
     
     @State var viewModel = AllIdeaViewModel()
-    @State var ideas: [MyIdeaModel] = []
+    @State var ideas: [Idea] = []
     
     var body: some View {
         AllIdea(buttonAction: {
-            coordinator.push(page: .add)
-        }, ideas: ideas.map{$0.toIdea()})
+            coordinator.push(page: .add(idea: nil))
+        }, ideas: ideas, coordinator: coordinator)
         .onAppear{
             viewModel.getAllIdea(context: managedObjectContext)
             if let ideasFromView = viewModel.ideas {
                 ideas = ideasFromView
             }
         }
-        
     }
 }
 
 struct AllIdea : View{
     let buttonAction: () -> ()
     let ideas: [Idea]
+    let coordinator: Coordinator?
     
     @State var shouldShowDrafts = false
     
-    
-    init(buttonAction: @escaping () -> Void = {}, ideas: [Idea] = []) {
+    init(buttonAction: @escaping () -> Void = {}, ideas: [Idea] = [], coordinator: Coordinator? = nil) {
         self.buttonAction = buttonAction
         self.ideas = ideas
+        self.coordinator = coordinator
     }
     
     var body: some View{
@@ -52,9 +52,9 @@ struct AllIdea : View{
                     }
             }.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing)
                 .padding(.trailing,15)
-            let data = shouldShowDrafts ? filterOnlyNotDraft(ideas: ideas) : ideas
+            let data = shouldShowDrafts ? ideas : filterOnlyNotDraft(ideas: ideas)
             ForEach(data, id: \.id){ idea in
-                IdeaItem(ideaItem: idea)
+                IdeaItem(ideaItem: idea, coordinator: coordinator)
             }
             Spacer()
             HStack(){

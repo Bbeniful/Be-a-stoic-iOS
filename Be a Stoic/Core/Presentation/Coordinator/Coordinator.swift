@@ -7,10 +7,11 @@
 
 import SwiftUI
 
-enum Page: Hashable{
+enum Page: Hashable , Equatable{
     case list
-    case add
+    case add(idea: Idea?)
     case settings
+    
 }
 
 class Coordinator: ObservableObject {
@@ -30,8 +31,8 @@ class Coordinator: ObservableObject {
         switch page {
         case .list:
             AllIdeaView()
-        case .add:
-            AddIdea()
+        case .add(let idea):
+            AddIdea(ideaObj: idea)
         case .settings:
             SettingsView()
         }

@@ -13,22 +13,39 @@ struct AddIdea: View {
     @EnvironmentObject var coordinator: Coordinator
 
     @State var viewModel = AddIdeaViewModel()
-    @State var idea: String = ""
+    @State var ideaText: String = ""
     @State var isChecked: Bool = false
+    
+    private var ideaObj: Idea?
+    
+    init(isChecked: Bool = true, ideaObj: Idea? = nil) {
+        self.isChecked = isChecked
+        self.ideaObj = ideaObj
+        
+    }
+    
+    private func setExisitingIdea(){
+        guard let idea = ideaObj else { return }
+        ideaText = idea.text
+    }
     
     var body: some View {
         BaseBackground(title:"Add", isSettingsVisible: false, shouldNavigateBack: true,
                        content: VStack{
-            TextField("", text: $idea, prompt: Text("Your thought..."))
+            
+            
+            TextField("", text: $ideaText, prompt: Text("Your thought..."))
             Toggle("is draft", isOn: $isChecked)
             Spacer()
             BaseButton(buttonAction: {
-                viewModel.addIdea(idea: idea, isDraft: isChecked, context: managedObjectContext)
+                viewModel.addIdea(idea: ideaText, isDraft: isChecked, context: managedObjectContext)
                 coordinator.popBack()
             }, text: "Save")
             
         }.padding()
-        )
+        ).onAppear{
+            setExisitingIdea()
+        }
     }
 }
 

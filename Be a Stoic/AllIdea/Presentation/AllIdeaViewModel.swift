@@ -10,18 +10,14 @@ import CoreData
 
 class AllIdeaViewModel: ObservableObject{
     
-    @Published var ideas: [MyIdeaModel]? = []
+    @Published var ideas: [Idea]? = []
     
-    init(ideas: [MyIdeaModel]? = []) {
+    init(ideas: [Idea]? = []) {
         self.ideas = ideas
     }
     
     
     func getAllIdea(context: NSManagedObjectContext) {
-        do {
-            try self.ideas = BeAStoicController.shared.getAllIdea(context: context)
-        } catch {
-            print("Cannot load data...", error)
-        }
+        self.ideas = GetIdeasUseCase().execute(context: context)
     }
 }

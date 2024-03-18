@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Idea: Identifiable{
+struct Idea: Identifiable, Hashable, Equatable{
     
     let id = UUID()
     var text: String
@@ -24,7 +24,7 @@ func filterOnlyNotDraft(ideas: [Idea]?) -> [Idea]{
 
 
 extension MyIdeaModel {
-    func toIdea() -> Idea{
+    func toIdea() -> Idea {
         return Idea(
             text: self.text!,
             isShared: self.isShared,
